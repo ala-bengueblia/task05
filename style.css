@@ -1,0 +1,140 @@
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #FFFFFF;
+    --accent-color: #FF6347;
+    --background-color: #f4f4f4;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    animation: colorChange 10s infinite alternate;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4em;
+}
+
+.search-box {
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#locationInput {
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    width: 250px;
+    transition: border-color 0.3s ease;
+}
+
+#locationInput:focus {
+    border-color: var(--accent-color);
+}
+
+#searchButton {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #FF5733;
+}
+
+#weatherContainer {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#weatherContainer h2,
+#weatherContainer p {
+    margin: 0.5em 0;
+    color: var(--primary-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: var(--primary-color);
+    }
+    50% {
+        background-color: var(--accent-color);
+    }
+    100% {
+        background-color: var(--primary-color);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    #locationInput {
+        width: 80%;
+    }
+
+    #weatherContainer {
+        padding: 1em;
+    }
+}
